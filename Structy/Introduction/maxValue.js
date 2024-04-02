@@ -22,15 +22,15 @@ const maxValue = (nums) => {
 };
 
 //structy solution:
-const maxValue = (nums) => {
-    let maximum = -Infinity;
+// const maxValue = (nums) => {
+//     let maximum = -Infinity;
 
-    for (let num of nums) {
-        if (num > maximum) maximum = num;
-    }
+//     for (let num of nums) {
+//         if (num > maximum) maximum = num;
+//     }
 
-    return maximum;
-};
+//     return maximum;
+// };
 
 //test cases:
 //maxValue([4, 7, 2, 8, 10, 9]); // -> 10
