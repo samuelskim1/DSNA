@@ -52,6 +52,38 @@ uncompress("2p1o5p"); // -> 'ppoppppp'
 uncompress("3n12e2z"); // -> 'nnneeeeeeeeeeeezz'
 uncompress("127y"); // ->'yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy'
 
+//Structy Solution:
+//using two pointers
+//Note: Made result variable an array because in JS, string concatonation is O(N) runtime bc strings are immutable
+    //You create a new copy based on the length of the string you are copying over
+    //Pushing and pulling from an array runs on O(1) runtime;
+    //Slight optimization to keep in mind
+
+const uncompress = (s) => {
+  let result = [];
+  const numbers = '0123456789';
+  let i = 0;
+  let j = 0;
+  while (j < s.length) {
+    if (numbers.includes(s[j])) {
+      j += 1;
+    } else {
+      const num = Number(s.slice(i, j));
+      for (let count = 0; count < num; count += 1) {
+        result.push(s[j]);
+      }
+      j += 1;
+      i = j;
+    }
+  }
+  return result.join('');
+};
+// n = number of groups
+// m = max num found in any group
+// Time: O(n*m)
+// Space: O(n*m)
+
+
 
 
 
