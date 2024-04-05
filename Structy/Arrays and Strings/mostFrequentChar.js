@@ -6,6 +6,9 @@
 // You can assume that the input string is non - empty.
 
 // Complexities:
+// n = length of string
+// Time: O(n)
+// Space: O(n)
 
 
 // My Solution: 
@@ -16,29 +19,55 @@ const mostFrequentChar = (s) => {
     for (let char of s) {
         char in counters ? counters[char]++ : counters[char] = 1
     }
-    console.log(counters);
 
-    let maxCounter = []
-
-    let pairs = Object.entries(counters);
-    console.log(pairs);
-
-    for (let pair of pairs) {
-        let counter = pair[1];
-        let letter = pair[0];
-        if (maxCounter.length === 0) {
-            maxCounter.push(letter);
-        } else {
-            if (maxCounter[0])
+    let best = null;
+    for (let char of s) {
+        if (best === null || counters[char] > counters[best]) {
+            best = char;
+        }
     }
-    }
+
+    return best;
+    // let maxCounter = []
+
+    // let pairs = Object.entries(counters);
+    // console.log(pairs);
+
+    // for (let pair of pairs) {
+    //   let counter = pair[1];
+    //   let letter = pair[0];
+    //   if (maxCounter.length === 0) {
+    //     maxCounter.push(letter);
+    //   } else {
+    //     if (maxCounter[0])
+    //   }
+    // }
 
 };
 
 
 
 // Structy Solution:
+// using a hashmap (object)
 
+const mostFrequentChar = (s) => {
+    const count = {};
+
+    for (let char of s) {
+        if (!(char in count)) {
+            count[char] = 0;
+        }
+        count[char] += 1
+    }
+
+    let best = null;
+    for (let char of s) {
+        if (best === null || count[char] > count[best]) {
+            best = char;
+        }
+    }
+    return best;
+};
 
 
 // Sara's Solution: 
