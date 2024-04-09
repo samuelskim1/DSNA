@@ -7,15 +7,35 @@
 // There is guaranteed to be one such pair that sums to the target.
 
 // Complexities:
+// n = length of array
+// Time: O(n)
+// Space: O(n)
 
 // My Solution:
 
 const pairSum = (numbers, targetSum) => {
     // todo
-    const hash = {};
-};
-
+    const previousNums = {};
+    for (let i = 0; i < numbers.length; i += 1) {
+        const num = numbers[i];
+        const complement = targetSum - num;
+        if (complement in previousNums) {
+            return [i, previousNums[complement]];
+        }
+        previousNums[num] = i;
+    };
+}
 // Structy's Solution:
+const pairSum = (numbers, targetSum) => {
+    const previousNums = {};
+    for (let i = 0; i < numbers.length; i += 1) {
+        const num = numbers[i];
+        const complement = targetSum - num;
+        if (complement in previousNums) return [i, previousNums[complement]];
+
+        previousNums[num] = i;
+    }
+};
 
 
 // Sara's Solution:
