@@ -16,6 +16,18 @@ let isPalindrome = (x) => {
     return x < 0 ? false : x === +x.toString().split('').reverse().join('');
 }
 
+let isPalindrome = (x) => {
+    let str = x.toString()
+    let i = 0
+    let j = str.length - 1
+    while (i < j) {
+        if (str[i] !== str[j]) return false
+        i++
+        j--
+    }
+    return true
+}
+
 
 const isPalidrome = (integer) => {
     // if (integer < 0) return false;
