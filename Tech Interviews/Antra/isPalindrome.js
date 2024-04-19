@@ -12,25 +12,30 @@
 // Find the middle index
 // 
 
-const isPalidrome(integer) => {
-    if (integer < 0) return false;
+let isPalindrome = (x) => {
+    return x < 0 ? false : x === +x.toString().split('').reverse().join('');
+}
 
-    const stringedInteger// (Change integer to string);
 
-    if (stringedInteger.length < 2) return true;
+const isPalidrome = (integer) => {
+    // if (integer < 0) return false;
 
-    let middleIndex = stringedInteger.length / 2
+    // const stringedInteger// (Change integer to string);
 
-    let j = -1;
+    // if (stringedInteger.length < 2) return true;
 
-    for (let i = 0; i < (stringedInteger.length / 2); i++) {
-        if (stringedInteger[i] === stringedInteger[j]) {
-            i++;
-            j--;
-        } else {
-            return false;
-        }
-    }
+    // let middleIndex = stringedInteger.length / 2
+
+    // let j = -1;
+
+    // for (let i = 0; i < (stringedInteger.length / 2); i++) {
+    //     if (stringedInteger[i] === stringedInteger[j]) {
+    //         i++;
+    //         j--;
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
 
 
