@@ -8,4 +8,11 @@ const mostFrequentChar = (s) => {
         count[char] += 1
     }
 
+    let best = null;
+    for (let char of s) {
+        if (best === null || count[char] > count[best]) {
+            best = char;
+        }
+    }
+    return best;
 };
