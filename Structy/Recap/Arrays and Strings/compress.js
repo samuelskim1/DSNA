@@ -37,3 +37,11 @@ const compress = (s) => {
     }
     return result;
 };
+
+// Test Cases:
+compress('ccaaatsss'); // -> '2c3at3s'
+compress('ssssbbz'); // -> '4s2bz'
+compress('ssssbbz'); // -> '4s2bz'
+compress('nnneeeeeeeeeeeezz'); // -> '3n12e2z'
+compress('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
+// -> '127y'
