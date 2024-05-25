@@ -49,7 +49,7 @@ const filter = function (arr, fn) {
     return result;
 };
 
-// solution #2:
+// solution #2 using Array.reduce:
 const filter = function(arr, fn) {
   return arr.reduce((result, value, index) => {
     if (fn(value, index)) {
@@ -57,4 +57,16 @@ const filter = function(arr, fn) {
     }
     return result;
   }, []);
+};
+
+// solution #3 using Array.forEach:
+
+const filter = function (arr, fn) {
+    const result = [];
+    arr.forEach((value, index) => {
+        if (fn(value, index)) {
+            result.push(value);
+        }
+    });
+    return result;
 };
