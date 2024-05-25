@@ -70,3 +70,17 @@ const filter = function (arr, fn) {
     });
     return result;
 };
+
+// solution #4 using array.map + array.reduce
+const filter = function (arr, fn) {
+    return arr.map((value, index) => {
+        if (fn(value, index)) {
+            return value;
+        }
+    }).reduce((result, value) => {
+        if (value !== undefined) {
+            result.push(value);
+        }
+        return result;
+    }, []);
+};
