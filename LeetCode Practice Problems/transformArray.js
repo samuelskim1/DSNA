@@ -50,3 +50,12 @@ const map = function (arr, fn) {
     });
     return transformedArr;
 };
+
+// solution #3 (reduce method):
+
+const map = function (arr, fn) {
+    return arr.reduce((transformedArr, element, index) => {
+        transformedArr[index] = fn(element, index);
+        return transformedArr;
+    }, []);
+};
