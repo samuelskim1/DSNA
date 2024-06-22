@@ -2,10 +2,7 @@
 
 // An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
 
-
-
-//     Example 1:
-
+// Example 1:
 // Input: s = "anagram", t = "nagaram"
 // Output: true
 // Example 2:
@@ -18,9 +15,7 @@
 
 // 1 <= s.length, t.length <= 5 * 104
 // s and t consist of lowercase English letters.
- 
 
-// Follow up: What if the inputs contain Unicode characters ? How would you adapt your solution to such a case?
 
 const isAnagram = function (s, t) {
     s = s.split("").sort()
@@ -35,4 +30,33 @@ const isAnagram = function (s, t) {
 
     return true;
 };
-//Please vote it. If you like it.
+
+
+// solution #2:
+const isAnagram = const anagrams = (s1, s2) => {
+    if (s1.length !== s2.length) return false;
+
+    const count = {}
+    for (let char of s1) {
+        if (!(char in count)) {
+            count[char] = 0
+        }
+        count[char]++
+    }
+
+    for (let char of s2) {
+        if (char in count) {
+            count[char]--
+        } else {
+            return false
+        }
+    }
+
+    let counters = Object.values(count);
+    for (let counter of counters) {
+        if (counter !== 0) return false;
+    };
+
+    return true;
+
+};
