@@ -10,3 +10,37 @@
 // Time: O(n)
 // Space: O(n)
 
+
+// My Solution: 
+const mostFrequentChar = (s) => {
+    // todo
+    let counters = {};
+
+    for (let char of s) {
+        char in counters ? counters[char]++ : counters[char] = 1
+    }
+
+    let best = null;
+    for (let char of s) {
+        if (best === null || counters[char] > counters[best]) {
+            best = char;
+        }
+    }
+
+    return best;
+    // let maxCounter = []
+
+    // let pairs = Object.entries(counters);
+    // console.log(pairs);
+
+    // for (let pair of pairs) {
+    //   let counter = pair[1];
+    //   let letter = pair[0];
+    //   if (maxCounter.length === 0) {
+    //     maxCounter.push(letter);
+    //   } else {
+    //     if (maxCounter[0])
+    //   }
+    // }
+
+};
