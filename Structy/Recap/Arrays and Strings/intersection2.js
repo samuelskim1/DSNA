@@ -32,12 +32,25 @@ const intersection = (a, b) => {
     return result;
 };
 
-// Solution #2:
+// Solution #2 (Brute Force(Time Out)):
 
 const intersection = (a, b) => {
     const result = [];
     for (let item of b) {
         if (a.includes(item)) {
+            result.push(item);
+        }
+    }
+    return result;
+};
+
+// #3: Using Set (Pass):
+
+const intersection = (a, b) => {
+    const result = [];
+    const setA = new Set(a);
+    for (let item of b) {
+        if (setA.has(item)) {
             result.push(item);
         }
     }
