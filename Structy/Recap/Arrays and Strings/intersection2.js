@@ -31,3 +31,15 @@ const intersection = (a, b) => {
     }
     return result;
 };
+
+// Solution #2:
+
+const intersection = (a, b) => {
+    const result = [];
+    for (let item of b) {
+        if (a.includes(item)) {
+            result.push(item);
+        }
+    }
+    return result;
+};
