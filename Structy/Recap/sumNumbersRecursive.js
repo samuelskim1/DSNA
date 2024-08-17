@@ -2,6 +2,12 @@
 //All elements will be integers. 
 // Solve this recursively.
 
+// My Solution: 
+
+const sumNumbersRecursive = (numbers) => {
+    if (numbers.length === 0) return 0
+    return numbers.pop() + sumNumbersRecursive(numbers)
+};
 
 
 // Test Cases:
