@@ -10,6 +10,20 @@
 // Time: O(n)
 // Space: O(1)
 
+//my solution:
+
+const maxValue = (nums) => {
+    let largestNum = -Infinity;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > largestNum) {
+            largestNum = nums[i];
+        }
+    }
+    return largestNum;
+};
+
+
+
 //test cases:
 //maxValue([4, 7, 2, 8, 10, 9]); // -> 10
 // maxValue([10, 5, 40, 40.3]); // -> 40.3
