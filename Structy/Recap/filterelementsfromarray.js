@@ -37,6 +37,8 @@
 // 0 <= arr.length <= 1000
 //     - 109 <= arr[i] <= 109
 
+
+//sol 1: .push and for loop
 const filter = function (arr, fn) {
     const result = [];
     for (let i = 0; i < arr.length; i++) {
@@ -44,5 +46,27 @@ const filter = function (arr, fn) {
             result.push(arr[i]);
         }
     }
+    return result;
+};
+
+//sol #2 using .reduce
+const filter = function (arr, fn) {
+    return arr.reduce((result, value, index) => {
+        if (fn(value, index)) {
+            result.push(value);
+        }
+        return result;
+    }, []);
+};
+
+
+//sol #3 using .forEach
+const filter = function (arr, fn) {
+    const result = [];
+    arr.forEach((value, index) => {
+        if (fn(value, index)) {
+            result.push(value);
+        }
+    });
     return result;
 };
