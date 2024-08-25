@@ -70,3 +70,17 @@ const filter = function (arr, fn) {
     });
     return result;
 };
+
+// sol #4 Array.map and array.reduce
+var filter = function (arr, fn) {
+    return arr.map((value, index) => {
+        if (fn(value, index)) {
+            return value;
+        }
+    }).reduce((result, value) => {
+        if (value !== undefined) {
+            result.push(value);
+        }
+        return result;
+    }, []);
+};
