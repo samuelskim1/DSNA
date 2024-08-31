@@ -29,6 +29,8 @@
 // s consists of only English letters and spaces ' '.
 // There will be at least one word in s.
 
+
+// sol #1
 const lengthOfLastWord = function (s) {
     let end = s.length - 1;
 
@@ -42,4 +44,26 @@ const lengthOfLastWord = function (s) {
     }
 
     return end - start;
+};
+
+
+// sol #2:
+const lengthOfLastWord = function (s) {
+    let length = 0;
+    let counting = false;
+
+    for (let c of s) {
+        if (c !== ' ') {
+            if (!counting) {
+                counting = true;
+                length = 1;
+            } else {
+                length++;
+            }
+        } else {
+            counting = false;
+        }
+    }
+
+    return length;
 };
