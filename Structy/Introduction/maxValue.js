@@ -5,6 +5,37 @@
 
 // You can assume that the array is non - empty.
 
+// my solution:
+
+const maxValue = (nums) => {
+    // todo
+    let largestNum = -Infinity;
+    for (let i = 0; i < nums.length; i++) {
+        if (nums[i] > largestNum) {
+            largestNum = nums[i];
+        }
+    }
+
+    return largestNum;
+};
+
+// structy's solution:
+
+// Time Complexity: 
+// n = length of array
+// Time: O(n)
+// Space: O(1)
+
+const maxValue = (nums) => {
+    let maximum = -Infinity;
+
+    for (let num of nums) {
+        if (num > maximum) maximum = num;
+    }
+
+    return maximum;
+};
+
 
 // test case 00:
 maxValue([4, 7, 2, 8, 10, 9]); // -> 10;
