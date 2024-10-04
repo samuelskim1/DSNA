@@ -1,0 +1,61 @@
+What is Big O Notation?
+
+- Notation to describe the performance of algorithms
+- Emphasis on how performance scales with input size
+- Approximation
+
+Why use Big O Notation?
+
+- allows us to compare performance of algorithms
+- does not rely upon environment (language, hardware, etc..)
+
+Big O Simplification Rules
+
+- Drop any constant factors
+    -EX: O(4n) -> O(n)
+    -EX2: O(999n) -> O(n)
+    -EX3: O(n/2) -> O(1/2 * n) -> O(n);
+    -Regardless of how big or small the constant is, Big O is only concerned about how performance scales with input size which is described by the variable n;
+
+- Drop smaller terms in a sum
+    -Ex: O(n^2 + n);
+        -Can drop the smaller one in the sum (n) because n is a lot smaller than n^2;
+        - Same with subtraction;
+    - Ex #2 : O(4n^2 + n + 5) would be just O(n^2);
+    - Ex #3: O((n^2)/2 + 900) = O(n^2)
+
+Worse Algorithms vs Better Algorithms:
+- Worse
+    - More Memory
+    - Slower
+
+- Better:
+    - Less memory 
+    - Faster
+
+Time Complexity: Speed
+Space Complexity: Space/Memory;
+
+Worse
+O(n!)
+    - Factorial\
+    EX: 8! = 8*7*6*5*4*3*2*1 = 40,320
+O(c^n)
+    - Exponential
+    - Ex: O(2^n), O(3^n)
+O(n^c) 
+    -Polynomial
+    -Ex: O(n^2), O(n^3)
+O(n)
+    -Linear
+O(log(n));
+    - Logarithmic
+    - Ex: log[base2](32) = 5
+        -How many divisions of 2 do i need to make of 32 to get 1? = 5;
+O(1):
+    - Constant;
+    - No matter the input size, we're always going to have the same space consumed/time taken;
+Better
+
+Problem:
+O(2^n + n^10) = O(2^n)
