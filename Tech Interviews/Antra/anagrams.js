@@ -22,3 +22,32 @@ anagrams('night', 'thing'); // -> true
 anagrams('night', 'thing'); // -> true
 anagrams('po', 'popp'); // -> false
 anagrams('pp', 'oo') // -> false
+
+// My Solution: 
+const anagrams = (s1, s2) => {
+    if (s1.length !== s2.length) return false;
+
+    const count = {}
+    for (let char of s1) {
+        if (!(char in count)) {
+            count[char] = 0
+        }
+        count[char]++
+    }
+
+    for (let char of s2) {
+        if (char in count) {
+            count[char]--
+        } else {
+            return false
+        }
+    }
+
+    let counters = Object.values(count);
+    for (let counter of counters) {
+        if (counter !== 0) return false;
+    };
+
+    return true;
+
+};
