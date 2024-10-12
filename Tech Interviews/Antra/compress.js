@@ -14,3 +14,60 @@
 // n = length of string
 // Time: O(n)
 // Space: O(n)
+
+// My Solution:
+
+const compress = (s) => {
+    let result = "";
+    let i = 0;
+    let j = 0;
+
+    while (j < s.length) {
+        if (s[j] === s[j + 1]) {
+            j++;
+        } else {
+            let letters = s.slice(i, j + 1)
+            console.log(letters);
+            if (letters.length > 1) {
+                result += (letters.length + s[j]);
+            } else {
+                result += s[j];
+            }
+            j++;
+            i = j;
+        }
+    }
+    return result;
+};
+
+// Structy Solution: 
+
+const compress = (s) => {
+    let result = [];
+    let i = 0;
+    let j = 0;
+
+    while (j <= s.length) {
+        if (s[i] === s[j]) {
+            j += 1;
+        } else {
+            const num = j - i;
+            if (num === 1) {
+                result.push(s[i]);
+            } else {
+                result.push(String(num), s[i]);
+            }
+            i = j;
+        }
+    }
+
+    return result.join('');
+};
+
+// Test Cases:
+compress('ccaaatsss'); // -> '2c3at3s'
+compress('ssssbbz'); // -> '4s2bz'
+compress('ssssbbz'); // -> '4s2bz'
+compress('nnneeeeeeeeeeeezz'); // -> '3n12e2z'
+compress('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
+// -> '127y'
