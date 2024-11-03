@@ -58,3 +58,14 @@ const filter = function (arr, fn) {
         return result;
     }, []);
 };
+
+//sol #3 using .forEach
+const filter = function (arr, fn) {
+    const result = [];
+    arr.forEach((value, index) => {
+        if (fn(value, index)) {
+            result.push(value);
+        }
+    });
+    return result;
+};
