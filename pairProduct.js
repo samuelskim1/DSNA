@@ -8,3 +8,39 @@
 // n = length of array
 // Time: O(n)
 // Space: O(n)
+
+// My Solution:
+
+const pairProduct = (numbers, targetProduct) => {
+    const previousNums = {};
+    for (let i = 0; i < numbers.length; i++) {
+        const number = numbers[i]
+        const complement = targetProduct / number
+        if (complement in hash) return [hash[complement], i];
+        hash[number] = i;
+    }
+}
+
+
+// Structy's Solution:
+
+const pairProduct = (numbers, targetProduct) => {
+    const previousNums = {};
+    for (let i = 0; i < numbers.length; i += 1) {
+        const num = numbers[i];
+        const complement = targetProduct / num;
+
+        if (complement in previousNums) return [previousNums[complement], i];
+
+        previousNums[num] = i;
+    }
+};
+
+// Test Cases:
+
+pairProduct([3, 2, 5, 4, 1], 8); // -> [1, 3]
+pairProduct([3, 2, 5, 4, 1], 10); // -> [1, 2]
+pairProduct([4, 7, 9, 2, 5, 1], 5); // -> [4, 5]
+pairProduct([4, 7, 9, 2, 5, 1], 35); // -> [1, 4]
+pairProduct([3, 2, 5, 4, 1], 10); // -> [1, 2]
+pairProduct([4, 6, 8, 2], 16); // -> [2, 3]
