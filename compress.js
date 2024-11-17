@@ -14,3 +14,34 @@
 // n = length of string
 // Time: O(n)
 // Space: O(n)
+
+const compress = (s) => {
+    let result = "";
+    let i = 0;
+    let j = 0;
+
+    while (j < s.length) {
+        if (s[j] === s[j + 1]) {
+            j++;
+        } else {
+            let letters = s.slice(i, j + 1)
+            console.log(letters);
+            if (letters.length > 1) {
+                result += (letters.length + s[j]);
+            } else {
+                result += s[j];
+            }
+            j++;
+            i = j;
+        }
+    }
+    return result;
+};
+
+// Test Cases:
+compress('ccaaatsss'); // -> '2c3at3s'
+compress('ssssbbz'); // -> '4s2bz'
+compress('ssssbbz'); // -> '4s2bz'
+compress('nnneeeeeeeeeeeezz'); // -> '3n12e2z'
+compress('yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
+// -> '127y'
