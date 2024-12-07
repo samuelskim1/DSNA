@@ -18,3 +18,15 @@
 // Constraints:
 // 2 <= s.length <= 100
 // s consists only of lowercase English letters.
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+const scoreOfString = (s) => {
+    let ans = 0;
+    for (let i = 1; i < s.length; i++) {
+        ans += Math.abs(s.charCodeAt(i - 1) - s.charCodeAt(i));
+    }
+    return ans;
+};
